@@ -1,23 +1,23 @@
 # Elf Forest Saga (C# / Windows)
 
-Dwuwymiarowa gra platformowa inspirowana stylem Mario i klimatem fantasy z początku lat 2000.
+Dwuwymiarowa gra platformowa inspirowana stylem Mario i klimatem fantasy z początku lat 2000, z nowocześniejszym detalem animacji.
 
 ## Fabuła
-Aerin to elf o długich blond włosach i rysach twarzy inspirowanych klasycznymi bohaterami high fantasy. Gdy Serce Lasu Aelorii gaśnie, na krainę rusza armia orków, goblinów, zombie i starych czarodziei. Aerin przemierza 20 rozdziałów-przygód, skacząc po kamiennych ruinach, drzewach i mostach, by ocalić las.
+Aerin to elf o długich blond włosach i bardziej ludzkich rysach twarzy inspirowanych klasycznymi bohaterami high fantasy. Gdy Serce Lasu Aelorii gaśnie, na krainę rusza armia orków, goblinów, zombie i starych czarodziei. Aerin przemierza 20 rozdziałów-przygód, skacząc po ruinach, drzewach i mostach, by ocalić las.
 
 ## Cechy gry
 - 20 poziomów kampanii.
 - Przewijany ekran (kamera podąża za graczem jak w klasycznych platformówkach).
-- Styl wizualny inspirowany platformówkami 2D z początku lat 2000:
-  - cieniowane tła,
-  - kamienne platformy,
-  - warstwowe dekoracje leśne,
-  - bardziej szczegółowy sprite bohatera (twarz, włosy, strój).
+- Styl wizualny fantasy z warstwowym, „malowanym” tłem (parallax, góry, las).
+- Szczegółowy bohater z twarzą/włosami/strojem w stylu fantasy.
 - 2 bronie do wyboru:
-  - Łuk (`1`)
-  - Ogień z dłoni (`2`)
-- Różni przeciwnicy: orki, gobliny, zombie, starzy czarodzieje.
-- Pickupy na każdym poziomie:
+  - Łuk
+  - Ogień z dłoni
+  - przełączanie klawiszem `Z`
+- Przeciwnicy (orki, gobliny, zombie, starzy czarodzieje) z animowanymi kończynami i aktywnymi atakami:
+  - ataki kontaktowe,
+  - czarodzieje dodatkowo strzelają pociskami.
+- Pickupy na poziomach:
   - dodatkowe zdrowie,
   - zwiększona szybkość strzału.
 - Zdrowie startowe elfa: `100`.
@@ -26,14 +26,22 @@ Aerin to elf o długich blond włosach i rysach twarzy inspirowanych klasycznymi
   - regulacja jasności,
   - restart poziomu,
   - wyjście z gry.
-- Muzyka tła (autorska pętla melodyczna generowana programowo).
 - Film końcowy po ukończeniu całej kampanii.
+
+## Muzyka (Twoje nagranie z linku YouTube)
+Repozytorium nie zawiera bezpośrednio pliku z YouTube. Aby użyć wskazanego utworu:
+1. Przygotuj lokalny plik `.wav` z muzyką (np. `custom-theme.wav`).
+2. Umieść go w folderze:
+   `ElfForestSaga.Game/Assets/music/custom-theme.wav`
+3. Podczas uruchomienia gra automatycznie wykryje i zapętli ten plik.
+
+Jeśli plik nie istnieje, gra odtwarza awaryjną melodię proceduralną.
 
 ## Sterowanie
 - `A` / `D` lub `←` / `→`: ruch
 - `Space`, `W`, `↑`: skok
 - `F` lub `Ctrl`: atak
-- `1` / `2`: zmiana broni
+- `Z`: zmiana broni
 - `Esc`: menu gry
 
 ## Uruchomienie na Windows
@@ -46,9 +54,9 @@ Aerin to elf o długich blond włosach i rysach twarzy inspirowanych klasycznymi
    ```
 
 ## Struktura projektu
-- `ElfForestSaga.Game/GameForm.cs` - główna pętla gry, logika, renderowanie, HUD, kamera, system jasności.
+- `ElfForestSaga.Game/GameForm.cs` - pętla gry, render, animacje przeciwników, system ataków, HUD.
 - `ElfForestSaga.Game/PauseMenuForm.cs` - menu ESC: poziomy, jasność, restart, wyjście.
 - `ElfForestSaga.Game/LevelFactory.cs` - generowanie 20 poziomów.
 - `ElfForestSaga.Game/GameObjects.cs` - modele obiektów gry.
-- `ElfForestSaga.Game/SoundtrackPlayer.cs` - muzyka tła.
+- `ElfForestSaga.Game/SoundtrackPlayer.cs` - obsługa muzyki (lokalny WAV + fallback).
 - `ElfForestSaga.Game/EndingCinematicForm.cs` - film końcowy.

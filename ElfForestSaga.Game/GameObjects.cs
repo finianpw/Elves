@@ -48,6 +48,9 @@ public sealed class Enemy
     public bool MovingRight;
     public int Health;
     public int Damage;
+    public float AnimationPhase;
+    public int AttackCooldown;
+    public bool IsAttacking;
 }
 
 public sealed class Projectile
@@ -56,6 +59,14 @@ public sealed class Projectile
     public float VelocityX;
     public float VelocityY;
     public WeaponType Weapon;
+    public int Damage;
+}
+
+public sealed class EnemyProjectile
+{
+    public RectangleF Bounds;
+    public float VelocityX;
+    public float VelocityY;
     public int Damage;
 }
 

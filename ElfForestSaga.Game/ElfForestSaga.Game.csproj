@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Assets\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
